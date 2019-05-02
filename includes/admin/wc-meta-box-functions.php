@@ -189,7 +189,7 @@ function woocommerce_wp_checkbox( $field ) {
 function woocommerce_wp_select( $field ) {
 	global $thepostid, $post;
 
-	$thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
+	$thepostid = empty( $thepostid ) ? ( isset( $post->ID ) ? $post->ID : 0) : $thepostid;
 	$field     = wp_parse_args(
 		$field, array(
 			'class'             => 'select short',
